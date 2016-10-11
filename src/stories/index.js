@@ -1,17 +1,12 @@
 import React from 'react';
-import { storiesOf, action, linkTo } from '@kadira/storybook';
-import Button from './Button';
-import Welcome from './Welcome';
+import { storiesOf } from '@kadira/storybook';
+import MainSection from '../components/MainSection';
 
-storiesOf('Welcome', module)
-  .add('to Storybook', () => (
-    <Welcome showApp={linkTo('Button')}/>
-  ));
+const stories = storiesOf('MainSection', module);
 
-storiesOf('Button', module)
-  .add('with text', () => (
-    <Button onClick={action('clicked')}>Hello Button REACT</Button>
-  ))
-  .add('with some emoji', () => (
-    <Button onClick={action('clicked')}>😀 😎 👍 💯</Button>
-  ));
+stories.add('with a single todo item', () => (
+  <MainSection
+    todos={[{id: '1', text: 'Learn React'}]}
+    actions={{}}
+  />
+))
